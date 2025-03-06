@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+# Ticketing System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for a Ticketing System built with React, TypeScript, TailwindCSS, and React Query. The application allows users to create, view, and manage tickets. It includes role-based access control, where users can be either `admin` or `user`. Admins have additional privileges, such as updating ticket statuses.
+
+## Features
+
+- **User Authentication**: Login and Signup functionality with role-based access control.
+- **Ticket Management**:
+  - Users can create and view their tickets.
+  - Admins can view all tickets and update their statuses.
+- **Role-Based Access Control**:
+  - `Admin`: Can view all tickets and update their statuses.
+  - `User`: Can create and view their own tickets.
+- **Responsive Design**: Built with TailwindCSS for a responsive and modern UI.
+- **State Management**: Uses React Query for efficient data fetching and caching.
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript for better developer experience.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+- **React Query**: A data-fetching library for managing server state in React applications.
+- **React Router**: A library for routing and navigation in React applications.
+- **HeadlessUI**: A set of completely unstyled, fully accessible UI components.
+- **Axios**: A promise-based HTTP client for making API requests.
+
+## Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/ticketing-system-fe.git
+   cd ticketing-system-fe
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm start
+   ```
+
+4. **Open the application**:
+   Visit `http://localhost:3000` in your browser.
+
+## Project Structure
+
+```
+ticketing-system-fe/
+├── public/                  # Static assets
+├── src/
+│   ├── components/          # Reusable components
+│   ├── pages/               # Page components
+│   ├── services/            # API service layer
+│   ├── App.tsx              # Main application component
+│   ├── index.tsx            # Entry point
+│   └── ...                  # Other configuration files
+├── package.json             # Project dependencies
+├── tailwind.config.js       # TailwindCSS configuration
+└── README.md                # Project documentation
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- **`npm start`**: Runs the app in development mode.
+- **`npm test`**: Launches the test runner.
+- **`npm run build`**: Builds the app for production.
+- **`npm run eject`**: Ejects the app from Create React App configuration.
 
-### `npm start`
+## Environment Variables
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this project, you will need to set up the following environment variables in a `.env` file:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
 
-### `npm test`
+Replace `http://localhost:5000/api` with the URL of your backend API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API Service
 
-### `npm run build`
+The frontend interacts with the backend via the `apiService` module, which is located in `src/services/api.ts`. This module handles all API requests, including authentication, ticket creation, and ticket management.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Protected Routes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application uses protected routes to ensure that only authenticated users can access certain pages. The `ProtectedRoute` component checks the user's role and redirects them to the appropriate dashboard (`/admin` or `/user`).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
+Contributions are welcome! Please follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeatureName`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeatureName`).
+5. Open a pull request.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Acknowledgments
 
-## Learn More
+- [React](https://reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Query](https://tanstack.com/query/v4)
+- [HeadlessUI](https://headlessui.com/)
+- [Axios](https://axios-http.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For any questions or issues, please open an issue on the GitHub repository.
